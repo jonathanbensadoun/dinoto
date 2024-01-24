@@ -1,1 +1,1 @@
-# dinoto
+# dinoto v2.0
