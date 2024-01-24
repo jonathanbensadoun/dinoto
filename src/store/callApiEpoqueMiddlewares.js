@@ -2,7 +2,7 @@ import { updateDataEpoque } from './dinoSlice';
 
 const callApiMiddlewares = (store) => (next) => (action) => {
   if (action.type === 'GET_DINO_FROM_API') {
-    console.log('Declancher le call API');
+    // console.log('Declancher le call API');
     const stateDino = store.getState();
     const idEpoque = stateDino.dino.epoqueValue;
 

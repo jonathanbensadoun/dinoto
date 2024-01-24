@@ -35,8 +35,6 @@ const dinoSlice = createSlice({
       };
     },
     typing: (state, action) => {
-      // Je récupere le payload de l'action qui contient la saisie
-      // de l'utilisateur
       const saisieEnCours = action.payload;
       return {
         ...state,

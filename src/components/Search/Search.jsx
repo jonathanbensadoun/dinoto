@@ -49,7 +49,7 @@ export default function Search({ dinos }) {
         }}
       >
         {dinos.map((dino) => (
-          <Link to="/detail" key={dino.id}>
+          <Link to={`/detail/${dino.id}`} key={dino.id}>
             <Card sx={{ maxWidth: 345 }} className="card-search">
               <CardMedia
                 component="img"
