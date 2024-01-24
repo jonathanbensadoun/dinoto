@@ -1,17 +1,18 @@
-import { updateData } from './dinoSlice';
+import { updateDataEpoque } from './dinoSlice';
 
 const callApiMiddlewares = (store) => (next) => (action) => {
   if (action.type === 'GET_DINO_FROM_API') {
     console.log('Declancher le call API');
     const stateDino = store.getState();
-    console.log('searchValue dans le middleware', stateDino.dino.searchValue);
+    const idEpoque = stateDino.dino.epoqueValue;
 
-    fetch(
-      `https://dinotoapi.com/api/dinosaures?pagination[pageSize]=110&sort[0]=name&populate=*&filters[name][$contains]=${stateDino.dino.searchValue}`
-    )
+    fetch(`https://dinotoapi.com/api/epoques/${idEpoque}?populate=*`)
       .then((response) => response.json())
       .then((data) => {
-        const dataAction = updateData(data.data);
+        const dataAction = updateDataEpoque(
+          data.data.attributes.dinosaures.data
+        );
+
         store.dispatch(dataAction);
       });
   }

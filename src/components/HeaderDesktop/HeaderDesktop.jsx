@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const pages = ['Home', 'Rechercher', 'Contact'];
 export default function HeaderDesktop() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className="header">
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
