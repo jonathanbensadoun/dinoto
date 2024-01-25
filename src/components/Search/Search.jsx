@@ -10,7 +10,7 @@ import Box from '@mui/system/Box';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { typing, submitSearch } from '../../store/dinoSlice';
+import { typing, submitSearch, changeDinoSelect } from '../../store/dinoSlice';
 
 export default function Search({ dinos }) {
   const typingValue = useSelector((state) => state.dino.typingValue);
@@ -49,8 +49,17 @@ export default function Search({ dinos }) {
         }}
       >
         {dinos.map((dino) => (
-          <Link to={`/detail/${dino.id}`} key={dino.id}>
-            <Card sx={{ maxWidth: 345 }} className="card-search">
+          <Link
+            to={`/detail/${dino.attributes.name}`}
+            key={dino.id}
+            onClick={() => {
+              dispatch(changeDinoSelect(dino.id));
+            }}
+          >
+            <Card
+              sx={{ maxWidth: 345, background: '#edeee8' }}
+              className="card-search"
+            >
               <CardMedia
                 component="img"
                 height="100%"

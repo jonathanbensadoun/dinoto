@@ -1,4 +1,4 @@
-import './App.scss';
+// import './App.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -13,6 +13,7 @@ import FooterDesktop from '../FooterDesktop/FooterDesktop';
 import Search from '../Search/Search';
 import Epoque from '../Epoque/Epoque';
 import Detail from '../Detail/Detail';
+import Loading from '../Loading/Loading';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,20 +21,27 @@ function App() {
     query: '(min-width: 768px)',
   });
 
-  const searchValue = useSelector((state) => state.dino.searchValue);
   const dinoData = useSelector((state) => state.dino.dinoData);
   const epoqueData = useSelector((state) => state.dino.epoqueData);
+  const oneDinoData = useSelector((state) => state.dino.oneDinoData);
+  const searchValue = useSelector((state) => state.dino.searchValue);
   const epoqueValue = useSelector((state) => state.dino.epoqueValue);
+  const dinoSelect = useSelector((state) => state.dino.dinoSelect);
+  const loading = useSelector((state) => state.dino.loading);
 
   useEffect(() => {
     const action = { type: 'GET_DINO_FROM_API' };
     dispatch(action);
-  }, [dispatch, searchValue, epoqueValue]);
+  }, [dispatch, searchValue, epoqueValue, dinoSelect]);
 
   // console.log('dataEpoque', epoqueData);
   // console.log(isDesktopOrLaptop);
-  console.log(dinoData);
+  // console.log(dinoSelect);
+  // console.log(oneDinoData);
   // console.log('searchValue', searchValue);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       {isDesktopOrLaptop && <HeaderDesktop />}
@@ -44,7 +52,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search dinos={dinoData} />} />
           <Route path="/epoque" element={<Epoque dinos={epoqueData} />} />
-          <Route path="/detail/:id" element={<Detail />} />
+          <Route
+            path="/detail/:slug"
+            element={
+              <Detail
+                dino={oneDinoData}
+                isDesktopOrLaptop={isDesktopOrLaptop}
+              />
+            }
+          />
         </Routes>
       </div>
 

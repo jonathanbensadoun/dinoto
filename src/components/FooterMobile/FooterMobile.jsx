@@ -14,7 +14,7 @@ import { GiDinosaurBones } from 'react-icons/gi';
 export default function FooterMobile() {
   return (
     <Box sx={{ flexGrow: 1 }} className="footer">
-      <AppBar position="static">
+      <AppBar position="static" sx={{ background: '#edeee8' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <MenuItem>
             <Link to="/">
@@ -23,7 +23,7 @@ export default function FooterMobile() {
           </MenuItem>
           <MenuItem>
             <Link to="https://dinotoapi.com/doc">
-              <GiDinosaurBones />
+              <GiDinosaurBones className="logo-dino" />
             </Link>
           </MenuItem>
           <MenuItem>

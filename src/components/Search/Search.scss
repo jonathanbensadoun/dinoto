@@ -1,9 +1,11 @@
+@use '@scssVariables' as v;
+
 .form {
   display: flex;
   justify-content: center;
   margin-top: 4rem;
   border-radius: 8px;
-  background: #fff;
+  background: v.$clr-nav;
   padding: 0.5rem;
   &__input {
     width: 90%;

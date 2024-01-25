@@ -4,9 +4,11 @@ const initialState = {
   loading: true,
   dinoData: [],
   epoqueData: [],
+  oneDinoData: [],
   typingValue: '',
   searchValue: '',
   epoqueValue: 1,
+  dinoSelect: 1,
 };
 
 const dinoSlice = createSlice({
@@ -18,6 +20,20 @@ const dinoSlice = createSlice({
         ...state,
         loading: false,
         epoqueValue: action.payload,
+      };
+    },
+    changeDinoSelect: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        dinoSelect: action.payload,
+      };
+    },
+    updateOneDinoData: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        oneDinoData: action.payload,
       };
     },
     updateDataEpoque: (state, action) => {
@@ -56,6 +72,8 @@ export const {
   submitSearch,
   updateDataEpoque,
   changeEpoque,
+  updateOneDinoData,
+  changeDinoSelect,
 } = dinoSlice.actions;
 
 export default dinoSlice.reducer;

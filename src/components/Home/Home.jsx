@@ -11,7 +11,8 @@ export default function Home() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
-        height: '85vh',
+        height: '80vh',
+        margin: '4rem',
       }}
     >
       <Link className="card_home elmt1" to="/search">

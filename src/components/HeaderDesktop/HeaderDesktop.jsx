@@ -1,23 +1,24 @@
 import './HeaderDesktop.scss';
-import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+
 import { Link } from 'react-router-dom';
 
-const pages = ['Home', 'Rechercher', 'Contact'];
 export default function HeaderDesktop() {
   return (
-    <Box sx={{ flexGrow: 1 }} className="header">
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, zIndex: 1 }} className="header">
+      <AppBar position="static" sx={{ background: '#edeee8' }}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Dinoto
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: '#17242a' }}
+          >
+            <Link to="/">Dinoto</Link>
           </Typography>
           <MenuItem>
             <Link to="/">

@@ -9,8 +9,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/system/Box';
 
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeEpoque } from '../../store/dinoSlice';
+import { useDispatch } from 'react-redux';
+import { changeEpoque, changeDinoSelect } from '../../store/dinoSlice';
 
 export default function Epoque({ dinos }) {
   const dispatch = useDispatch();
@@ -19,14 +19,26 @@ export default function Epoque({ dinos }) {
   };
   return (
     <>
-      <Box className="box-btn">
-        <Button variant="contained" onClick={() => handleEpoqueChange(1)}>
+      <Box className="box-btn" marginBottom="1REM">
+        <Button
+          sx={{ background: '#edeee8', color: '#17242a' }}
+          variant="contained"
+          onClick={() => handleEpoqueChange(1)}
+        >
           Jurassique
         </Button>
-        <Button variant="contained" onClick={() => handleEpoqueChange(2)}>
+        <Button
+          sx={{ background: '#edeee8', color: '#17242a' }}
+          variant="contained"
+          onClick={() => handleEpoqueChange(2)}
+        >
           Crétacé
         </Button>
-        <Button variant="contained" onClick={() => handleEpoqueChange(3)}>
+        <Button
+          sx={{ background: '#edeee8', color: '#17242a' }}
+          variant="contained"
+          onClick={() => handleEpoqueChange(3)}
+        >
           Trias
         </Button>
       </Box>
@@ -40,8 +52,17 @@ export default function Epoque({ dinos }) {
         }}
       >
         {dinos.map((dino) => (
-          <Link to={`/detail/${dino.id}`} key={dino.id}>
-            <Card sx={{ maxWidth: 345 }} className="card-search">
+          <Link
+            to={`/detail/${dino.attributes.name}`}
+            key={dino.id}
+            onClick={() => {
+              dispatch(changeDinoSelect(dino.id));
+            }}
+          >
+            <Card
+              sx={{ maxWidth: 345, background: '#edeee8' }}
+              className="card-search"
+            >
               <CardMedia
                 component="img"
                 height="100%"

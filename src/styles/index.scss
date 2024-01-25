@@ -5,7 +5,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background: red;
+  background: v.$clr-body;
+  color: v.$clr-text-dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,10 +22,14 @@
   width: 100%;
 }
 .header {
+  background: v.$clr-nav;
   position: fixed;
   top: 0;
   width: 100vw;
 }
 .page {
   padding: 1rem;
+}
+a {
+  color: v.$clr-text-dark;
 }

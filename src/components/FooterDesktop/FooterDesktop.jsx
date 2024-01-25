@@ -16,7 +16,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 export default function FooterDesktop() {
   return (
     <Box sx={{ flexGrow: 1 }} className="footer">
-      <AppBar position="static">
+      <AppBar position="static" sx={{ background: '#edeee8' }}>
         <Toolbar sx={{ justifyContent: 'space-around' }}>
           <MenuItem>
             <Link to="https://github.com/jonathanbensadoun" target="_blank">
@@ -33,7 +33,7 @@ export default function FooterDesktop() {
           </MenuItem>
           <MenuItem>
             <Link to="https://dinotoapi.com/doc" target="_blank">
-              <GiDinosaurBones />
+              <GiDinosaurBones className="logo-dino" />
             </Link>
           </MenuItem>
         </Toolbar>
